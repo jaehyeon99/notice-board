@@ -33,7 +33,7 @@ function App() {
       <div className='movie-container'>
         {viewContent.map(element =>
           <div>
-            <h2>글 제목 : {element.title}</h2>
+            <h2>제목 : {element.title}</h2>
             <div>
               {ReactHtmlParser(element.content)}
 
@@ -44,7 +44,7 @@ function App() {
         )}
       </div>
       <div className='form-wrapper'>
-        <input className="title-input" type="text" placeholder="제목" onChange={(e) => {
+        <input className="title-input" type="text" placeholder="제목을 입력해주세요." onChange={(e) => {
           setboardContent({
             ...boardContent,
             title: e.target.value
@@ -78,8 +78,10 @@ function App() {
         />
       </div>
       <button className="submit-button" onClick={() => {
-        setViewContent(viewContent.concat({ ...boardContent }));
-        console.log(viewContent) /// viewContent 는 boardContent 동일
+
+        setViewContent(viewContent.concat({ ...boardContent }))
+
+
       }
 
       }> 글 올리기 </button>

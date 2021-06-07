@@ -11,7 +11,7 @@ function App() {
   // const [content, setcontent] = useState([]) // 내용 contents state
   // const [viewContent, setViewContent] = useState([]) // 제목 + 내용 state
 
-  const [movieContent, setMovieContent] = useState({
+  const [boardContent, setboardContent] = useState({
     title: ' ',
     content: ' '
   })
@@ -20,34 +20,36 @@ function App() {
 
   // const getValue = e => {
   //   const { name, value } = e.target;
-  //   setMovieContent({
-  //     ...movieContent,
+  //   setboardContent({
+  //     ...boardContent,
   //     [name]: value
   //   })
-  //   console.log(movieContent);
+  //   console.log(boardContent);
   // }
 
   return (
     <div className="App">
-      <h1>Movie Review</h1>
+      <h1>📌 게시판 📌</h1>
       <div className='movie-container'>
         {viewContent.map(element =>
           <div>
-            <h2>{element.title}</h2>
+            <h2>글 제목 : {element.title}</h2>
             <div>
               {ReactHtmlParser(element.content)}
+
               <hr></hr>
             </div>
+
           </div>
         )}
       </div>
       <div className='form-wrapper'>
         <input className="title-input" type="text" placeholder="제목" onChange={(e) => {
-          setMovieContent({
-            ...movieContent,
+          setboardContent({
+            ...boardContent,
             title: e.target.value
           })
-          console.log(movieContent)
+          console.log(boardContent)
         }}
           // console.log(title) // title 정상적으로 value 값 바뀜
 
@@ -59,8 +61,8 @@ function App() {
 
           onChange={(event, editor) => {
             const data = editor.getData();
-            setMovieContent({
-              ...movieContent,
+            setboardContent({
+              ...boardContent,
               content: data
             })
             // console.log(content) // content 정상적으로 value 값 바뀜 
@@ -76,8 +78,8 @@ function App() {
         />
       </div>
       <button className="submit-button" onClick={() => {
-        setViewContent(viewContent.concat({ ...movieContent }));
-        console.log(viewContent)
+        setViewContent(viewContent.concat({ ...boardContent }));
+        console.log(viewContent) /// viewContent 는 boardContent 동일
       }
 
       }> 글 올리기 </button>

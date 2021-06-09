@@ -9,8 +9,10 @@ npm install
 npm install --save @ckeditor/ckeditor5-react @ckeditor/ckeditor5-build-classic
 ```
 ```bash
-npm install node-html-parser  or yarn add node-html-parser
+npm install node-html-parser  "or"  yarn add node-html-parser
 ```
+
+
 
 
 #### 실행하기
